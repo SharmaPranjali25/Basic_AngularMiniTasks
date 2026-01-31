@@ -84,5 +84,27 @@
 @else if (color==2) {<div style="width: 100px; height: 100px; background-color:green;"></div>}
 @else if (color==3) {<div style="width: 100px; height: 100px; background-color:yellow"></div>}
 @else{<div style="width: 100px; height: 100px; background-color: brown"></div>}
+ <br>
+ <hr>
+ <h1 style="background-color: black; color: white;"> Two way Binding</h1>
+ <input [(ngModel)]="nametwo" type="text" placeholder="Enter Name">
+ <h1 style="color: black;">
+    {{nametwo}}
+</h1>
 
-
+<hr>
+<h1 style="background-color: black; color: white;"> To Do List App</h1>
+<input type="text" [(ngModel)]="task" placeholder="Enter New Task">
+<button (click)="addTask()">Add task</button>
+<!-- <h1>{{task}}</h1> -->
+@for(task of tasklist; track task.id)
+{
+    <ul>
+        <li>{{task.id}}</li>
+        <li>
+            {{task.task}}
+        </li>
+        
+        <li> <button click()="deletetask(task.id)"> Delete</button></li>
+    </ul>
+}
