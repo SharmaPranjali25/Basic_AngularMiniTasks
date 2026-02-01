@@ -1,1 +1,18 @@
-<p>home works!</p>
+<h1> This is our Home Page</h1>
+<!-- PASS DATA WITH ROUTER LINK -->
+<!-- <a [routerLink]="['newprofile',{name:'Pranjali'}]"> Go to New profile Page</a> -->
+
+<!-- PASS DATA WITH BUTTON CLICK -->
+ <!-- <button (click)="goToprofile()">Go to profile page</button> -->
+
+  <!-- DYNAMIC BINDING -->
+   <h1>USER LIST - Dynamic Binding</h1>
+   <ul>
+    @for(user of users; track user.id){
+    <li><a routerLink="">{{user.name }}</a></li>
+    }
+   </ul>
+
+
+
+ 
