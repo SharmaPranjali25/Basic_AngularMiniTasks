@@ -3,10 +3,11 @@ import { Login } from './login/login';
 import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
 import {NgFor, NgIf} from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule, NgIf, NgFor],
+  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink,RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
