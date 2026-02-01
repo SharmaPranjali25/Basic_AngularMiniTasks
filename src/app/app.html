@@ -20,8 +20,8 @@
 <br>
 <h1 style="color: black;background-color: palevioletred;"> GET and SET Input Field Values</h1>
 <!-- <h2> User's Name is: {{name}}</h2> -->
- <h2 style="color: blue;"> User's Name is: {{displayName}}</h2>
-<input type="text" value="{{name}}"(input)="getName($event)" placeholder="Enter UserName">
+<h2 style="color: blue;"> User's Name is: {{displayName}}</h2>
+<input type="text" value="{{name}}" (input)="getName($event)" placeholder="Enter UserName">
 
 <br>
 <br>
@@ -29,7 +29,7 @@
 <button (click)="showName()">Get Name</button>
 <button (click)="setName()">Set Name</button>
 
-<br> 
+<br>
 <br>
 <h1 class="option" style="color: black;background-color: palevioletred;"> Styles Rules and Options</h1>
 
@@ -42,7 +42,7 @@
 <br>
 <br>
 @if(display){
-    <div style="width:200px; height:200px; background-color: green;">
+<div style="width:200px; height:200px; background-color: green;">
 
 </div>
 
@@ -51,20 +51,20 @@
 <br>
 <br>
 <!-- <button (click)="toogleTwo()">Toggle Two Divs</button> -->
- <button (click)="toogleTwo()">{{
+<button (click)="toogleTwo()">{{
     toggleDiv?'show red div':'show blue div'
     }}
- </button>
+</button>
 
 @if(toggleDiv){
-    <div style="background-color:gold; width: 200px; height: 200px;">
+<div style="background-color:gold; width: 200px; height: 200px;">
 
-    </div>
+</div>
 }
 @else{
-    <div style="background-color: skyblue; width: 200px; height: 200px;">
+<div style="background-color: skyblue; width: 200px; height: 200px;">
 
-    </div>
+</div>
 
 
 }
@@ -74,8 +74,8 @@
 <h1 style="color: black;background-color: palevioletred;"> Else IF | Control Statement</h1>
 <br>
 <button (click)="handlecolor(1)">Red</button>
-<button  (click)="handlecolor(2)">Green</button>
-<button  (click)="handlecolor(3)">Yellow</button>
+<button (click)="handlecolor(2)">Green</button>
+<button (click)="handlecolor(3)">Yellow</button>
 <button (click)="handlecolor(10)">Brown</button>
 <input type="text" (input)="handletext($event)" placeholder="Enter Number">
 @if(color==1){
@@ -84,11 +84,11 @@
 @else if (color==2) {<div style="width: 100px; height: 100px; background-color:green;"></div>}
 @else if (color==3) {<div style="width: 100px; height: 100px; background-color:yellow"></div>}
 @else{<div style="width: 100px; height: 100px; background-color: brown"></div>}
- <br>
- <hr>
- <h1 style="background-color: black; color: white;"> Two way Binding</h1>
- <input [(ngModel)]="nametwo" type="text" placeholder="Enter Name">
- <h1 style="color: black;">
+<br>
+<hr>
+<h1 style="background-color: black; color: white;"> Two way Binding</h1>
+<input [(ngModel)]="nametwo" type="text" placeholder="Enter Name">
+<h1 style="color: black;">
     {{nametwo}}
 </h1>
 
@@ -99,12 +99,29 @@
 <!-- <h1>{{task}}</h1> -->
 @for(task of tasklist; track task.id)
 {
-    <ul>
-        <li>{{task.id}}</li>
-        <li>
-            {{task.task}}
-        </li>
-        
-        <li> <button click()="deletetask(task.id)"> Delete</button></li>
-    </ul>
+<ul>
+    <li>{{task.id}}</li>
+    <li>
+        {{task.task}}
+    </li>
+
+    <li> <button click()="deletetask(task.id)"> Delete</button></li>
+</ul>
 }
+
+<!-- DIRECTIVES IN ANGULAR  -->
+<h1 *ngIf="show"> Heading Tag</h1>
+<hr>
+<h1> *ngFor Directives in Angular</h1>
+<ul>
+    <li *ngFor="let x of Students"> 
+        {{x}}
+    </li>
+</ul>
+<ul>
+    <li *ngFor="let student of studentsData">
+        {{student.name}},{{student.age}},{{student.email}}
+       
+
+    </li>
+</ul>

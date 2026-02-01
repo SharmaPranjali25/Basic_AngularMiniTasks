@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { Login } from './login/login';
 import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
+import {NgFor, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule],
+  imports: [Login, Profile, FormsModule, NgIf, NgFor],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -80,5 +81,39 @@ export class App {
   deleteTask(taskid: number) {
     this.tasklist = this.tasklist.filter((item) => item.id != taskid);
   }
+
+  // DIRECTIVES IN ANGULAR
+  show= false;
+  // show = true;
+
+  // *ngFor
+  Students=["Pranjali", "Jasmine","Aakriti","Sehar"];
+  studentsData=[{
+    name:'Arjun',
+    age:'23',
+    email:'arjun1@gmail.com'
+
+  },
+  {
+    name:'Neha',
+    age:'24',
+    email:'neha1@gmail.com'
+
+  },
+  {
+    name:'Mayank',
+    age:'23',
+    email:'mayank1@gmail.com'
+
+  },
+  {
+    name:'Raghav',
+    age:'21',
+    email:'raghav1@gmail.com'
+
+  },
+]
+
 }
+
 
