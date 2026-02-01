@@ -4,10 +4,11 @@ import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
 import {NgFor, NgIf} from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { Header } from "./header/header";
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink,RouterOutlet],
+  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink, RouterOutlet, Header],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
