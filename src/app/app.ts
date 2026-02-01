@@ -1,15 +1,16 @@
 import { Component, signal } from '@angular/core';
 import { Login } from './login/login';
 import { Profile } from './profile/profile';
-import { FormsModule } from '@angular/forms';
-import {NgFor, NgIf} from '@angular/common';
+import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Header } from "./header/header";
+import { email } from '@angular/forms/signals';
 
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink, RouterOutlet, Header],
+  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink, RouterOutlet, Header, ReactiveFormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -86,37 +87,65 @@ export class App {
   }
 
   // DIRECTIVES IN ANGULAR
-  show= false;
+  show = false;
   // show = true;
 
   // *ngFor
-  Students=["Pranjali", "Jasmine","Aakriti","Sehar"];
-  studentsData=[{
-    name:'Arjun',
-    age:'23',
-    email:'arjun1@gmail.com'
+  Students = ["Pranjali", "Jasmine", "Aakriti", "Sehar"];
+  studentsData = [{
+    name: 'Arjun',
+    age: '23',
+    email: 'arjun1@gmail.com'
 
   },
   {
-    name:'Neha',
-    age:'24',
-    email:'neha1@gmail.com'
+    name: 'Neha',
+    age: '24',
+    email: 'neha1@gmail.com'
 
   },
   {
-    name:'Mayank',
-    age:'23',
-    email:'mayank1@gmail.com'
+    name: 'Mayank',
+    age: '23',
+    email: 'mayank1@gmail.com'
 
   },
   {
-    name:'Raghav',
-    age:'21',
-    email:'raghav1@gmail.com'
+    name: 'Raghav',
+    age: '21',
+    email: 'raghav1@gmail.com'
 
   },
-]
+  ]
 
+  // FORMS
+  nameform = new FormControl();
+  passwordform = new FormControl();
+
+  displayValue() {{
+    console.log(this.nameform.value,this.passwordform.value);
+    
+  }
+
+}
+
+setValue(){
+    this.nameform.setValue("Pranjali Sharma");
+    this.passwordform.setValue("123456");
+}
+
+// FORM GROUPING
+profileForm= new FormGroup({
+  name:new FormControl(),
+  password:new FormControl(),
+  email:new FormControl()
+})
+onSubmit(){
+  // console.log("onSubmit called");
+  console.log(this.profileForm.value);
+
+
+}
 }
 
 

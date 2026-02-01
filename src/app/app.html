@@ -144,3 +144,31 @@
 <router-outlet>
 
 </router-outlet>
+
+<h1>Basics of FORMS</h1>
+<form action="" method="post">
+    <input type="text" name="username" placeholder="Enter UserName" [formControl]="nameform">
+    <br>
+    <input type="text" placeholder="Enter Password" [formControl]="passwordform">
+    <br>
+    <button type="button"(click)="displayValue()">Login</button>
+    <br>
+     <button type="button"(click)="setValue()">Set Values</button>
+    <h3>{{nameform.value}}</h3>
+    <br>
+    <h3> {{passwordform.value}}</h3>
+
+</form>
+<hr>
+<h1> Form Grouping In Reactive Forms</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Enter Name" formControlName="name">
+    <br> <br>
+    <input type="text" placeholder="Enter Password" formControlName="password">
+    <br> <br>
+    <input type="text" placeholder="Enter Email" formControlName="email">
+      <button type="submit">Submit</button>
+
+
+
+</form>
