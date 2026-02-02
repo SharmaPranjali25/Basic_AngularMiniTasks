@@ -6,11 +6,12 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Header } from "./header/header";
 import { email } from '@angular/forms/signals';
+import { CurrencyConvertorPipe } from './pipe/currency-convertor-pipe';
 
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink, RouterOutlet, Header, ReactiveFormsModule, CommonModule],
+  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink, RouterOutlet, Header, ReactiveFormsModule, CommonModule, CurrencyConvertorPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -157,6 +158,8 @@ get email(){
 
 // PIPES
 title="Pipe Starting";
+date= new Date();
+amount=10;
 }
 
 
