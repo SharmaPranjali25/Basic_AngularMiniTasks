@@ -163,6 +163,8 @@
 <h1> Form Grouping In Reactive Forms</h1>
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <input type="text" placeholder="Enter Name" formControlName="name">
+    <span *ngIf="name?.hasError('required')">Name is Required </span>
+     <span class="error" *ngIf="name?.invalid &&(name?.dirty|| name?.touched)">Name is needed </span>
     <br> <br>
     <input type="text" placeholder="Enter Password" formControlName="password">
     <br> <br>
@@ -172,3 +174,7 @@
 
 
 </form>
+<br><br>
+<hr>
+<h2> {{title}}</h2>
+<h2>{{title | uppercase}}</h2>

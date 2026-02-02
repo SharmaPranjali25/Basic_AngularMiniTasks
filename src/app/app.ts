@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { Login } from './login/login';
 import { Profile } from './profile/profile';
-import { FormsModule, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Header } from "./header/header";
 import { email } from '@angular/forms/signals';
@@ -10,7 +10,7 @@ import { email } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink, RouterOutlet, Header, ReactiveFormsModule],
+  imports: [Login, Profile, FormsModule, NgIf, NgFor, RouterLink, RouterOutlet, Header, ReactiveFormsModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -28,20 +28,19 @@ export class App {
   handlereset() {
     this.count = 0;
   }
-  name = ""
+  names = ""
   displayName = "";
   getName(event: Event) {
     const val = (event.target as HTMLInputElement).value;
     //console.log(name);
-    this.name = val;
+    this.names = val;
 
   }
   showName() {
-    this.displayName = this.name;
-
+    this.displayName = this.names;
   }
   setName() {
-    this.name = "Pranjali";
+    this.names = "Pranjali";
   }
 
 
@@ -136,9 +135,9 @@ setValue(){
 
 // FORM GROUPING
 profileForm= new FormGroup({
-  name:new FormControl(),
-  password:new FormControl(),
-  email:new FormControl()
+  name:new FormControl('',[Validators.required]),
+  password:new FormControl('',[Validators.required, Validators.minLength(6)]),
+  email:new FormControl('',[Validators.required, Validators.email, Validators.maxLength(30)])
 })
 onSubmit(){
   // console.log("onSubmit called");
@@ -146,6 +145,18 @@ onSubmit(){
 
 
 }
+get name(){
+  return this.profileForm.get('name');
+}
+get password(){
+  return this.profileForm.get('password');
+}
+get email(){
+  return this.profileForm.get('email');
+}
+
+// PIPES
+title="Pipe Starting";
 }
 
 
